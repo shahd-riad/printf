@@ -8,7 +8,7 @@
  */
 int _putchar(char c)
 {
-	return (write(1, &c, 1));
+    return (write(1, &c, 1));
 }
 
 /**
@@ -19,15 +19,15 @@ int _putchar(char c)
  */
 int _strlen(char *s)
 {
-	int length = 0;
+    int length = 0;
 
-	while (*s)
-	{
-		length++;
-		s++;
-	}
+    while (*s)
+    {
+        length++;
+        s++;
+    }
 
-	return (length);
+    return (length);
 }
 
 /**
@@ -38,56 +38,65 @@ int _strlen(char *s)
  */
 int _printf(const char *format, ...)
 {
-	int len = 0;
-	char *str;
-	char ch;
+    int len = 0;
+    char *str;
+    char ch;
 
-	va_list args;
-	va_start(args, format);
+    va_list args;
+    va_start(args, format);
 
-	while (*format)
-	{
-		if (*format != '%')
-		{
-			_putchar(*format);
-			len++;
-			format++;
-		}
-		else
-		{
-			format++;
-			switch (*format)
-			{
-			case 'c':
-				ch = va_arg(args, int);
-				if ((ch >= 97 && ch <= 122) || (ch >= 65 && ch <= 90))
-					return (-1);
-				_putchar(ch);
-				len++;
-				break;
-			case 's':
-				str = va_arg(args, char *);
-				if (str == NULL)
-					write(1, "(null)", 6);
-				write(1, str, _strlen(str));
-				len += _strlen(str);
-				break;
-			case '%':
-				_putchar('%');
-				break;
-			case '\0':
-				return (-1);
-				break;
-			default:
-				_putchar('%');
-				_putchar(*format);
-				len += 2;
-				break;
-			}
-			format++;
-		}
-	}
-	va_end(args);
-	return (len);
+    while (*format)
+    {
+        if (*format == '\0')
+            return (-1);
+        if (*format != '%')
+        {
+            _putchar(*format);
+            len++;
+            format++;
+        }
+        else
+        {
+            format++;
+            switch (*format)
+            {
+            case 'c':
+                ch = va_arg(args, int);
+                if ((ch >= 97 && ch <= 122) || (ch >= 65 && ch <= 90))
+                    return (-1);
+                _putchar(ch);
+                len++;
+                break;
+            case 's':
+                str = va_arg(args, char *);
+                if (str == NULL)
+                {
+                    str = "(null)";
+                    write(1, str, _strlen(str));
+                    len += _strlen(str);
+                }
+                else
+                {
+                    write(1, str, _strlen(str));
+                    len += _strlen(str);
+                }
+                break;
+            case '%':
+                _putchar('%');
+                len++;
+                break;
+            case '\0':
+                return (-1);
+            default:
+                _putchar('%');
+                _putchar(*format);
+                len += 2;
+                break;
+            }
+            format++;
+        }
+    }
+    va_end(args);
+    return (len);
 }
 
