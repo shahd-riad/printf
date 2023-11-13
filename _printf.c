@@ -1,35 +1,5 @@
 #include "main.h"
 /**
- * _putchar - Writes a character to the standard output
- * @c: The character to be written
- *
- * Return: On success, 1; otherwise, -1
- */
-int _putchar(char c)
-{
-    return (write(1, &c, 1));
-}
-
-/**
- * _strlen - Calculates the length of a string
- * @s: The string to calculate the length of
- *
- * Return: The length of the string
- */
-int _strlen(char *s)
-{
-    int length = 0;
-
-    while (*s)
-    {
-        length++;
-        s++;
-    }
-
-    return (length);
-}
-
-/**
  * _printf - Custom printf function
  * @format: The format string
  *
