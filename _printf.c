@@ -9,10 +9,10 @@
 int _printf(const char *format, ...)
 {
     convert_match conversion[] = {
-        {"%s", printf_string}, {"%c", printf_char} };
+        {"%s", printf_string}, {"%c", printf_char}};
 
     va_list args;
-    int i = 0, len = 0;
+    int i = 0, j, len = 0;
 
     va_start(args, format);
 
@@ -21,28 +21,23 @@ int _printf(const char *format, ...)
 
     while (format[i] != '\0')
     {
-        if (format[i] == '%' && format[i + 1] != '\0')
+        j = 1;
+        while (j <= 1)
         {
-            int j = 1;
-            while (j <= 1)
+            if (conversion[j].id[0] == format[i] && conversion[j].id[1] == format[1])
             {
-                if (conversion[j].id[0] == format[i] && conversion[j].id[1] == format[i + 1])
-                {
-                    len += conversion[j].f(args);
-                    i += 2;
-                    break;
-                }
-                j--;
+                len += conversion[j].f(args);
+                i += 2;
+                goto Here; // to handle having more than 1 specifier
             }
+            j--;
         }
-        else
-        {
-            _putchar(format[i]);
-            len++;
-            i++;
-        }
+        _putchar(*format);
+        len++;
+        i++;
     }
 
+Here:
     va_end(args);
     return (len);
 }
