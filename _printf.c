@@ -9,13 +9,7 @@
 int _printf(const char *format, ...)
 {
     convert_match conversion[] = {
-        {"%s", printf_string}, {"%c", printf_char},
-        {"%%", printf_37},
-        {"%i", printf_int}, {"%d", printf_dec}, {"%r", printf_srev},
-        {"%R", printf_rot13}, {"%b", printf_bin}, {"%u", printf_unsigned},
-        {"%o", printf_oct}, {"%x", printf_hex}, {"%X", printf_HEX},
-        {"%S", printf_exclusive_string}, {"%p", printf_pointer}
-    };
+        {"%s", printf_string}, {"%c", printf_char} };
 
     va_list args;
     int i = 0, len = 0;
@@ -29,14 +23,14 @@ int _printf(const char *format, ...)
     {
         if (format[i] == '%' && format[i + 1] != '\0')
         {
-            int j = 13;
-            while (j <= 13)
+            int j = 1;
+            while (j <= 1)
             {
                 if (conversion[j].id[0] == format[i] && conversion[j].id[1] == format[i + 1])
                 {
                     len += conversion[j].f(args);
                     i += 2;
-                    break;  // exit the inner loop when a specifier is found
+                    break;
                 }
                 j--;
             }
