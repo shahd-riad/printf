@@ -28,7 +28,7 @@ int _printf(const char *format, ...)
             {
                 len += conversion[j].f(args);
                 i += 2;
-                goto Here; // to handle having more than 1 specifier
+                goto Here;
             }
             j--;
         }
