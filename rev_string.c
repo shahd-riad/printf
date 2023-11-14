@@ -8,8 +8,10 @@
  */
 int printf_rev(va_list args)
 {
+
 	char *s = va_arg(args, char*);
-	int i, j;
+	int i;
+	int j = 0;
 
 	if (s == NULL)
 		s = "(null)";
