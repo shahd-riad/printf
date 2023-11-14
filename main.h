@@ -6,6 +6,7 @@
 #include <stdarg.h>
 #include <limits.h>
 #include <unistd.h>
+#include <stdarg.h>
 
 /**
  * struct flags - struct containing flags to "turn on"
