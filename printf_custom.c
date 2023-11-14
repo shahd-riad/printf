@@ -1,57 +1,34 @@
 #include "main.h"
 
 /**
- * print_string - loops through a string and prints
- * every character
- * @l: va_list arguments from _printf
- * @f: pointer to the struct flags that determines
- * if a flag is passed to _printf
- * Return: number of char printed
- */
-int print_string(va_list l, flags_t *f)
+ * print_custom - integer to ascii
+ * @num: num
+ * @base: base
+ *
+ * Return: char
+ **/
+char *print_custom(long int num, int base)
 {
-	char *s = va_arg(l, char *);
+	static char *array = "0123456789abcdef";
+	static char buffer[50];
+	char sign = 0;
+	char *ptr;
+	unsigned long n = num;
 
-	(void)f;
-
-	if (!s)
-		s = "(null)";
-	return (_puts(s));
-}
-
-/**
- * print_bigS - Non printable characters
- * (0 < ASCII value < 32 or >= 127) are
- * printed this way: \x, followed by the ASCII code
- * value in hexadecimal (upper case - always 2 characters)
- * @l: va_list arguments from _printf
- * @f: pointer to the struct flags that determines
- * if a flag is passed to _printf
- * Return: number of char printed
- */
-int print_bigS(va_list l, flags_t *f)
-{
-	int i, count = 0;
-	char *res;
-	char *s = va_arg(l, char *);
-
-	(void)f;
-	if (!s)
-		return (_puts("(null)"));
-
-	for (i = 0; s[i]; i++)
+	if (num < 0)
 	{
-		if (s[i] > 0 && (s[i] < 32 || s[i] >= 127))
-		{
-			_puts("\\x");
-			count += 2;
-			res = convert(s[i], 16, 0);
-			if (!res[1])
-				count += _putchar('0');
-			count += _puts(res);
-		}
-		else
-			count += _putchar(s[i]);
+		n = -num;
+		sign = '-';
 	}
-	return (count);
+	ptr = &buffer[49];
+	*ptr = '\0';
+
+	do      {
+		*--ptr = array[n % base];
+		n /= base;
+	} while (n != 0);
+
+	if (sign)
+		*--ptr = sign;
+	return (ptr);
 }
