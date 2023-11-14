@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * printf_percent - Custom printf function for percent symbol
+ * printf_perc - Custom printf function for percent symbol
  * @val: The va_list (not used in this function)
  *
  * Return: The number of characters printed (always 1)
