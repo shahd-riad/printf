@@ -10,6 +10,7 @@ int printf_bin(va_list val)
 {
 	char binary[32];
 	int index = 0;
+	int i;
 	unsigned int num = va_arg(val, unsigned int);
 
 	if (num == 0)
@@ -25,7 +26,7 @@ int printf_bin(va_list val)
 		num /= 2;
 	}
 
-	for (int i = index - 1; i >= 0; i--)
+	for (i = index - 1; i >= 0; i--)
 	{
 		putchar(binary[i]);
 	}

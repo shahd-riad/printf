@@ -7,7 +7,7 @@
  * Return: The number of characters printed (always 1)
  */
 
-int printf_percent(va_list val)
+int printf_perc(va_list val)
 {
 	(void)val; /* Unused parameter, silence the warning */
 	_putchar('%');
