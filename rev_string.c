@@ -6,7 +6,7 @@
  *
  * Return: Length of the string
  **/
-int  print_rev_string(va_list list)
+int print_rev_string(va_list list)
 {
 	int i, size;
 	const char *str;
