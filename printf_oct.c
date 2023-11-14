@@ -1,16 +1,15 @@
 #include "main.h"
 
 /**
- * printf_bin - Custom printf function for binary integers
- * @val: The va_list containing the binary integer to print
+ * printf_oct - Custom printf function for octal conversion
+ * @val: The va_list containing the unsigned integer to print
  *
  * Return: The number of characters printed
  */
-int printf_bin(va_list val)
+int printf_oct(va_list val)
 {
-	char binary[32];
-	int index = 0, count = 0;
-	int i;
+	char oct[32];
+	int index = 0, count = 0, i;
 	unsigned int num = va_arg(val, unsigned int);
 
 	if (num == 0)
@@ -22,13 +21,13 @@ int printf_bin(va_list val)
 
 	while (num > 0)
 	{
-		binary[index++] = num % 2;
-		num /= 2;
+		oct[index++] = num % 8;
+		num /= 8;
 	}
 
 	for (i = index - 1; i >= 0; i--)
 	{
-		putchar(binary[i] + '0');
+		_putchar(oct[i] + '0');
 		count++;
 	}
 
