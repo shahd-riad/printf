@@ -61,4 +61,5 @@ int _putchar(char c);
 int _puts(char *str);
 int get_flag(char s, flags_t *f);
 int print_rev(va_list l, flags_t *f);
+char *convert(unsigned long int num, int base, int lowercase);
 #endif
