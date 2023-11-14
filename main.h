@@ -57,4 +57,5 @@ int printf_37(void);
 int printf_char(va_list val);
 int printf_string(va_list val);
 int _putchar(char c);
+int _puts(char *str);
 #endif
