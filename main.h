@@ -20,6 +20,7 @@ typedef struct format
 } convert_match;
 
 int _printf(const char *format, ...);
+void print_buffer(char *buffer, unsigned int size);
 int printf_perc(va_list val);
 int printf_pointer(va_list val);
 int printf_hex_gen(va_list val, int uppercase);
