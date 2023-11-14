@@ -15,37 +15,24 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-
+Here:
 	while (format[i] != '\0')
 	{
-		if (format[i] == '%' && format[i + 1] != '\0')
+		j = 1;
+		while (j >= 0)
 		{
-			while (j <= 1)
+			if (conv[j].id[0] == format[i] && conv[j].id[1] == format[i + 1])
 			{
-				if (conv[j].id[0] == format[i] && conv[j].id[1] == format[i + 1])
-				{
-					len += conv[j].f(args);
-					i += 2;
-					break;
-				}
-				j++;
+				len += conv[j].f(args);
+				i = i + 2;
+				goto Here;
 			}
+			j--;
 		}
-		else if (format[i] == '%' && format[i + 1] == '%')
-		{
-			_putchar('%');
-			len++;
-			i += 2;
-		}
-		else
-		{
-			_putchar(format[i]);
-			len++;
-			i++;
-		}
+		_putchar(format[i]);
+		len++;
+		i++;
 	}
-
 	va_end(args);
 	return (len);
 }
-
