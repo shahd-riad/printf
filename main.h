@@ -8,11 +8,24 @@
 #include <unistd.h>
 
 /**
+ * struct flags - struct containing flags to "turn on"
+ * when a flag specifier is passed to _printf()
+ * @plus: flag for the '+' character
+ * @space: flag for the ' ' character
+ * @hash: flag for the '#' character
+ */
+typedef struct flags
+{
+	int plus;
+	int space;
+	int hash;
+} flags_t;
+
+/**
  * struct format - match the conversion specifiers for printf
  * @id: type char pointer of the specifier i.e (l, h) for (d, i, u, o, x, X)
  * @f: type pointer to function for the conversion specifier
  */
-
 typedef struct format
 {
 	char *id;
@@ -23,6 +36,7 @@ int printf_pointer(va_list val);
 int printf_hex_aux(unsigned long int num);
 int printf_HEX_aux(unsigned int num);
 int printf_exclusive_string(va_list val);
+int print_bigS(va_list l, flags_t *f);
 int printf_HEX(va_list val);
 int printf_hex(va_list val);
 int printf_oct(va_list val);
