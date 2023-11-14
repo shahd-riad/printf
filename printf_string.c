@@ -8,23 +8,23 @@
  */
 int printf_string(va_list val)
 {
-    char *str = "";
-    int len = 0;
+	char *str = "";
+	int len = 0;
 
-    str = va_arg(val, char *);
+	str = va_arg(val, char *);
 
-    if (str == NULL)
-    {
-        str = "(null)";
-        write(1, str, _strlen(str));
-        len += _strlen(str);
-        return (len);
-    }
-    else
-    {
-        write(1, str, _strlen(str));
-        len += _strlen(str);
-        return (len);
-    }
+	if (str == NULL)
+	{
+		str = "(null)";
+		write(1, str, _strlen(str));
+		len += _strlen(str);
+		return (len);
+	}
+	else
+	{
+		write(1, str, _strlen(str));
+		len += _strlen(str);
+		return (len);
+	}
 }
 

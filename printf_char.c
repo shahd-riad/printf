@@ -8,14 +8,14 @@
  */
 int printf_char(va_list val)
 {
-    char ch;
-    
-    ch = va_arg(val, int);
+	char ch;
 
-    if ((ch >= 97 && ch <= 122) || (ch >= 65 && ch <= 90))
-        return (-1);
+	ch = va_arg(val, int);
 
-    _putchar(ch);
-    return (1);
+	if ((ch >= 97 && ch <= 122) || (ch >= 65 && ch <= 90))
+		return (-1);
+
+	_putchar(ch);
+	return (1);
 }
 
