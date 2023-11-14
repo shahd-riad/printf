@@ -39,6 +39,7 @@ int printf_perc(va_list val);
 int printf_pointer(va_list val);
 int printf_hex_gen(va_list val, int uppercase);
 int printf_exclusive_string(va_list val);
+char *print_custom(long int num, int base);
 int print_bigS(va_list l, flags_t *f);
 int printf_HEX(va_list val);
 int printf_hex(va_list val);
