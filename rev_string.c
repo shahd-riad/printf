@@ -1,27 +1,22 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * print_rev - prints a string in reverse
- * @l: argument from _printf
- * @f: pointer to the struct flags that determines
- * if a flag is passed to _printf
- * Return: length of the printed string
- */
-int print_rev(va_list l, flags_t *f)
+ * print_rev_string - Print a string in reverse
+ * @list: List of arguments
+ *
+ * Return: Length of the string
+ **/
+int  print_rev_string(va_list list)
 {
-	int i = 0, j;
-	char *s = va_arg(l, char *);
+	int i, size;
+	const char *str;
 
-	(void)f;
-	if (!s)
-		s = "(null)";
+	str = va_arg(list, const char *);
 
-	while (s[i])
-		i++;
+	size = _strlen(str);
 
-	for (j = i - 1; j >= 0; j--)
-		_putchar(s[j]);
+	for (i = size - 1; i >= 0; i--)
+		_putchar(str[i]);
 
-	return (i);
+	return (size);
 }
