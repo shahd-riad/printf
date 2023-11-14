@@ -17,13 +17,13 @@ int printf_string(va_list val)
 	{
 		str = "(null)";
 		write(1, str, _strlen(str));
-		len += _strlen(str);
+		len = _strlen(str);
 		return (len);
 	}
 	else
 	{
 		write(1, str, _strlen(str));
-		len += _strlen(str);
+		len = _strlen(str);
 		return (len);
 	}
 }
