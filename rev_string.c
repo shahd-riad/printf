@@ -2,23 +2,26 @@
 #include <stdio.h>
 
 /**
- * printf_rev - function that rev reverse the string
- * @args: tyoe struct va_arg where is allocated printf arguments
- *
- * Return: the string
+ * print_rev - prints a string in reverse
+ * @l: argument from _printf
+ * @f: pointer to the struct flags that determines
+ * if a flag is passed to _printf
+ * Return: length of the printed string
  */
-int printf_rev(va_list args)
+int print_rev(va_list l, flags_t *f)
 {
+	int i = 0, j;
+	char *s = va_arg(l, char *);
 
-	char *s = va_arg(args, char*);
-	int i;
-	int j = 0;
-
-	if (s == NULL)
+	(void)f;
+	if (!s)
 		s = "(null)";
-	while (s[j] != '\0')
-		j++;
-	for (i = j - 1; i >= 0; i--)
-		_putchar(s[i]);
-	return (j);
+
+	while (s[i])
+		i++;
+
+	for (j = i - 1; j >= 0; j--)
+		_putchar(s[j]);
+
+	return (i);
 }
