@@ -26,6 +26,9 @@ int printf_bin(va_list val)
 		num /= 2;
 	}
 
+	if (index > 32)
+		return (-1);
+
 	for (i = index - 1; i >= 0; i--)
 	{
 		putchar(binary[i] + '0');
