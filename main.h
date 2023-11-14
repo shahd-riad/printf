@@ -51,7 +51,6 @@ int printf_int(va_list args);
 int printf_dec(va_list args);
 int _strlen(char *s);
 int *_strcpy(char *dest, char *src);
-int _strlenc(const char *s);
 int print_rev_string(va_list);
 int _strlenc(const char *s);
 int printf_37(void);
@@ -61,6 +60,5 @@ int print_string(va_list l, flags_t *f);
 int _putchar(char c);
 int _puts(char *str);
 int get_flag(char s, flags_t *f);
-int print_rev(va_list l, flags_t *f);
 char *convert(unsigned long int num, int base, int lowercase);
 #endif
