@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 	convert_match conv[] = {{"%s", printf_string}, {"%c", printf_char},
 		{"%i", printf_int}, {"%d", printf_dec}, {"%b", printf_bin},
 		{"%%", printf_perc},  {"%u", printf_unsigned},
-		{"%o", printf_oct}, {"%x", printf_hex}, {"%X", printf_HEX}, {"%r", print_rev_string}};
+		{"%o", printf_oct}, {"%x", printf_hex}, {"%X", printf_HEX}};
 	va_list args;
 	int i = 0, len = 0, j = 0;
 
