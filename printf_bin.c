@@ -8,33 +8,29 @@
  */
 int printf_bin(va_list val)
 {
-	char binary[32];
-	int index = 0, count = 0;
-	int i;
-	unsigned int num = va_arg(val, unsigned int);
+	unsigned int n, m, i, sum;
+	unsigned int a[32];
+	int count;
 
-	if (num == 0)
+	n = va_arg(val,  unsigned int);
+	m = 2147483648U; /* (2 ^ 31) */
+	a[0] = n / m;
+	for (i = 1; i < 32; i++)
 	{
-		_putchar('0');
-		count++;
-		return (count);
+		m /= 2;
+		a[i] = (n / m) % 2;
 	}
-
-	while (num > 0)
+	for (i = 0, sum = 0, count = 0; i < 32; i++)
 	{
-		binary[index++] = num % 2;
-		num /= 2;
+		sum += a[i];
+		if (sum || i == 31)
+		{
+			char z = '0' + a[i];
+
+			write(1, &z, 1);
+
+			count++;
+		}
 	}
-
-	if (index > 32)
-		return (-1);
-
-	for (i = index - 1; i >= 0; i--)
-	{
-		putchar(binary[i] + '0');
-		count++;
-	}
-
 	return (count);
 }
-

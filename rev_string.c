@@ -1,11 +1,20 @@
 #include "main.h"
 
 /**
- * print_rev_string - Print a string in reverse
- * @list: List of arguments
+ * print_rev_string - Print a reversed string
+ * @list: A va_list containing the arguments
  *
- * Return: Length of the string
- **/
+ * Description:
+ * This function takes a va_list containing a string argument and prints
+ * the characters of the string in reverse order.
+ *
+ * Parameters:
+ *   - @list: A va_list containing the arguments. Expects a string as
+ *   an argument.
+ *
+ * Return:
+ *   The number of characters printed (excluding the null byte).
+ */
 int print_rev_string(va_list list)
 {
 	int i, size;
