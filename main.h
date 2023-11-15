@@ -58,6 +58,7 @@ int printf_37(void);
 int printf_char(va_list val);
 int printf_string(va_list val);
 int print_string(va_list l, flags_t *f);
+int printf_HEX_aux(unsigned int num);
 int _putchar(char c);
 int _puts(char *str);
 int get_flag(char s, flags_t *f);
