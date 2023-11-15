@@ -56,7 +56,7 @@ int printf_hex(va_list val)
 }
 
 /**
- * printf_hex_uppercase - Custom printf function for uppercase
+ * printf_HEX - Custom printf function for uppercase
  * hexadecimal conversion
  * @val: The va_list containing the unsigned integer to print
  *
